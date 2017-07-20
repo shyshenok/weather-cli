@@ -1,0 +1,75 @@
+<div class="form-wrapper">
+  <div class="search-inputs-wrapper">
+    <label>Введите город</label>
+    <input #cityInput placeholder="Город">
+    <button (click)="getWeather(cityInput.value)">Поиск</button>
+  </div>
+  <div class="weather-content">
+    <div class="weather-wrapper" *ngIf="currentWeather">
+      <div class="weather-row">
+        <img src="{{currentWeather.current.condition.icon}}" alt="">
+        <p>{{currentWeather.current.condition.text}}</p>
+        <p>{{currentWeather.location.country}},  {{currentWeather.location.name}}</p>
+      </div>
+      <h3>Temperature</h3>
+      <div class="weather-row">
+        <p *ngIf="checkedSwitcherTemp"> {{currentWeather.current.temp_c}} C° (feels like {{currentWeather.current.feelslike_c}} C°)</p>
+        <p *ngIf= "!checkedSwitcherTemp"> {{currentWeather.current.temp_f}} F° (feels like {{currentWeather.current.feelslike_f}} F°)</p>
+      </div>
+      <h3>Wind</h3>
+      <div class="weather-row">
+        <p *ngIf="checkedSwitcherWind">{{currentWeather.current.wind_kph}} kilometer per hour</p>
+        <p *ngIf="!checkedSwitcherWind">{{currentWeather.current.wind_mph}} miles per hour</p>
+
+      </div>
+      <h3>Pressure</h3>
+      <div class="weather-row">
+        <p>{{currentWeather.current.pressure_mb}} millibars</p>
+        <p>{{currentWeather.current.pressure_in}} inches</p>
+      </div>
+
+      <div class="forecast">
+        <p>Press the button for getting forecast on 10 days</p>
+        <button (click)="goToForecast()">Forecast on 10 days</button>
+      </div>
+    </div>
+
+    <div *ngIf="!currentWeather">
+      <p class="error-message">Press the button for searching!</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="weather-settings">
+  <div class="switcher-temp">
+    <h3>F°</h3>
+    <label class="switch">
+      <input #switcherTemp type="checkbox" [(ngModel)] = "checkedSwitcherTemp">
+      <div class="slider round"></div>
+    </label>
+    <h3>C°</h3>
+  </div>
+  <div class="switcher-wind">
+    <h3>mph</h3>
+    <label class="switch">
+      <input #switcherWind type="checkbox" [(ngModel)] = "checkedSwitcherWind">
+      <div class="slider round"></div>
+    </label>
+    <h3>km/h</h3>
+  </div>
+</div>
+
+
+<div class="weather-history-query">
+  <div *ngFor="let city of queryHistory" class="">
+    <p (click)="getWeather(city)">{{city}}</p>
+  </div>
+</div>
+
+<div class="weather-history-response">
+  <div *ngFor="let weather of responseHistory" class="">
+    <p (click)="retrieveFromHistory(weather)">{{weather.location.name}}</p>
+  </div>
+</div>
+

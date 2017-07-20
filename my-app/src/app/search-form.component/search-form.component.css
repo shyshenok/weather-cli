@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 35px;
+  border-radius: 6px;
+}
+
+.weather-content h3 {
+  margin: 0;
+}
+
+.weather-wrapper {
+  width: 500px;
+}
+
+.search-inputs-wrapper {
+  padding: 10px;
+  border-bottom: 2px solid #fff;
+}
+
+.search-inputs-wrapper input,
+.search-inputs-wrapper button {
+  height: 30px;
+  border-radius: 6px;
+  border: 0;
+}
+
+.search-inputs-wrapper input {
+  padding: 10px;
+  width: 200px;
+}
+
+.search-inputs-wrapper button {
+  background-color: #fff;
+  width: 65px;
+}
+
+.error-message {
+  color: firebrick;
+}
+
+.weather-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.weather-row p {
+  padding: 0 10px 0 0;
+}
+
+.weather-settings,
+.weather-history-query,
+.weather-history-response {
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  border-radius: 6px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.weather-settings {
+  height: 125px;
+  right: 25px;
+  width: 200px;
+  align-items: stretch;
+  justify-content: center;
+  top: 25px;
+}
+
+.weather-history-query {
+  height: auto;
+  left: 25px;
+  padding: 0 16px;
+  top: 25px;
+}
+
+.weather-history-response {
+  padding: 0 16px;
+  bottom: 25px;
+  left: 25px;
+}
+
+.switcher-temp,
+.switcher-wind {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #7db5cc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7db5cc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.forecast button {
+  height: 30px;
+  border-radius: 6px;
+  border: 0;
+  background-color: #fff;
+  padding: 0 36px;
+}
+
+.forecast {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border-top: 2px solid #fff;
+}
+
+.forecast p {
+  color: #1d6684;
+}
