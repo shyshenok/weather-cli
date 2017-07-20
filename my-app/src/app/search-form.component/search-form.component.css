@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Handlee', cursive;
 }
 
 .form-wrapper {
@@ -12,7 +13,7 @@
 }
 
 .weather-content h3 {
-  margin: 0;
+  margin-right: 20px;
 }
 
 .weather-wrapper {
@@ -76,6 +77,7 @@
 }
 
 .weather-history-query {
+  min-width: 100px;
   height: auto;
   left: 25px;
   padding: 0 16px;
@@ -83,9 +85,20 @@
 }
 
 .weather-history-response {
+  min-width: 100px;
   padding: 0 16px;
   bottom: 25px;
   left: 25px;
+}
+
+.weather-history-response,
+.weather-history-query{
+  font-size: 12px;
+}
+
+.weather-history-response p,
+.weather-history-query p {
+  text-transform: capitalize;
 }
 
 .switcher-temp,
