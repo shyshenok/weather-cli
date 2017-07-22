@@ -2,7 +2,7 @@
  * Created by shyshenok on 10.07.17.
  */
 import {Input, Component, OnInit} from '@angular/core';
-import {SharedService} from "../servises/shared-servises";
+import {SharedService} from "../servises/shared-services";
 
 @Component({
   moduleId: module.id,
@@ -16,7 +16,9 @@ export class ForecastWeatherComponent implements OnInit {
   constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
-   console.log("forecast city " + this.sharedService.city);
-  }
 
+    this.sharedService.citySubject.asObservable().subscribe(city => {
+      console.log('forecast city ' + city);
+    })
+  }
 }

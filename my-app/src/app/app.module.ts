@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchFormComponent } from './search-form.component/search-form.component';
 import { ForecastWeatherComponent } from './forecast-form.component/forecast-form.component';
+import {SharedService} from './servises/shared-services';
 
 
 
@@ -17,6 +18,7 @@ export const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes) ],
   declarations: [ AppComponent, SearchFormComponent, ForecastWeatherComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [SharedService]
 })
 export class AppModule { }
