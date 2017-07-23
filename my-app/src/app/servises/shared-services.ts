@@ -1,13 +1,12 @@
 /**
  * Created by shyshenok on 13.07.17.
  */
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {ReplaySubject} from "rxjs";
 
 @Injectable()
 export class SharedService {
- citySubject: Subject<string> = BehaviorSubject.create();
- backgroundSubject: Subject<string> = BehaviorSubject.create();
-
+  citySubject: Subject<string> = new ReplaySubject(1);
+  backgroundSubject: Subject<string> = new ReplaySubject(1);
 }

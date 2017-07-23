@@ -9,15 +9,15 @@ import {SharedService} from "../servises/shared-services";
   selector: 'app-forecast-form',
   templateUrl: './forecast-form.component.html',
   styleUrls: ['./forecast-form.component.css'],
-  providers: [SharedService]
 })
 export class ForecastWeatherComponent implements OnInit {
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService) {
+  }
 
   ngOnInit(): void {
 
-    this.sharedService.citySubject.asObservable().subscribe(city => {
+    this.sharedService.citySubject.subscribe(city => {
       console.log('forecast city ' + city);
     })
   }

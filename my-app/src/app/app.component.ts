@@ -9,10 +9,11 @@ import {SharedService} from './servises/shared-services';
 export class AppComponent implements OnInit {
   backgroundPicture: string;
 
-  constructor(private sharedServices: SharedService) {}
+  constructor(private sharedService: SharedService) {}
+
   ngOnInit(): void {
-    this.sharedServices.backgroundSubject.subscribe(background => {
-      console.log(`New background ${background}`);
+    this.sharedService.backgroundSubject.subscribe(background => {
+      console.log(`New background: ${background}`);
       this.backgroundPicture = background;
     });
   }

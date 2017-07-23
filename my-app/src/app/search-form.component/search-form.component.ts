@@ -14,7 +14,6 @@ import {SharedService} from '../servises/shared-services';
   selector: 'app-weather',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
-  providers: [SharedService]
 })
 export class SearchFormComponent {
 
@@ -25,17 +24,16 @@ export class SearchFormComponent {
 
   queryHistory: Array<string> = [];
   responseHistory: Array<Weather> = [];
-  picturesMap: Map<number, string> = new  Map<number, string> ();
-  backgroundPicture: string;
+  picturesMap: Map<number, string> = new Map<number, string>();
 
   constructor(private httpClient: Http, private router: Router, private sharedService: SharedService) {
-    this.picturesMap.set (1000, 'sunny.jpg');
-    this.picturesMap.set (1003, 'partly-cloudy.jpg');
+    this.picturesMap.set(1000, 'sunny.jpg');
+    this.picturesMap.set(1003, 'partly-cloudy.jpg');
 
   }
 
   getBackgroundPicture(currentWeather) {
-    this.sharedService.backgroundSubject.next(this.picturesMap[currentWeather.current.condition.code]);
+    this.sharedService.backgroundSubject.next(this.picturesMap.get(currentWeather.current.condition.code));
     console.log(`code = ${currentWeather.current.condition.code}`);
   }
 
@@ -45,19 +43,15 @@ export class SearchFormComponent {
   }
 
   getWeather(inputCity: string) {
-    console.log('clicked ' + inputCity);
-    console.log(this.httpClient);
 
     this.addQueryHistory(inputCity);
 
-    console.log('Add history: ' + this.queryHistory);
     this.pushToSharedService(inputCity);
 
     this.httpClient.get(`http://api.apixu.com/v1/current.json?key=b4c808afa46c4075a74133530173005&q=${inputCity}`)
       .subscribe((data: Response) => {
         this.processWeatherResponse(data);
       });
-
   }
 
   processWeatherResponse(data: Response) {
@@ -68,19 +62,15 @@ export class SearchFormComponent {
 
   addResponseHistory(weather: Weather) {
     this.responseHistory.unshift(weather);
-    console.log('unshift ' + this.responseHistory);
-    if (this.responseHistory.length > 2) {
-      console.log('responseHistory array ' + this.responseHistory.length);
-      this.responseHistory.slice(this.responseHistory.length - 1, 1);
-
+    if (this.responseHistory.length > 5) {
+      this.responseHistory.splice(this.responseHistory.length - 1, 1);
     }
   }
 
   addQueryHistory(inputCity: string) {
     this.queryHistory.unshift(inputCity);
     if (this.queryHistory.length > 5) {
-      this.queryHistory.slice(this.queryHistory.length - 1, 1);
-      console.log('queryHistory array ' + this.queryHistory.length);
+      this.queryHistory.splice(this.queryHistory.length - 1, 1);
     }
   }
 
@@ -91,6 +81,4 @@ export class SearchFormComponent {
   goToForecast() {
     this.router.navigate(['/forecast']);
   }
-
-
 }
