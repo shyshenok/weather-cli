@@ -29,6 +29,56 @@ export class SearchFormComponent {
   constructor(private httpClient: Http, private router: Router, private sharedService: SharedService) {
     this.picturesMap.set(1000, 'sunny.jpg');
     this.picturesMap.set(1003, 'partly-cloudy.jpg');
+    this.picturesMap.set(1006, 'cloudy.jpg');
+    this.picturesMap.set(1009, 'overcast.jpg');
+    this.picturesMap.set(1030, 'mist.jpg');
+    this.picturesMap.set(1063, 'possibly-rain.jpg');
+    this.picturesMap.set(1066, 'small-snow.jpg');
+    this.picturesMap.set(1069, 'rain-snow.jpg');
+    this.picturesMap.set(1072, 'freezing-drizzle.jpg');
+    this.picturesMap.set(1087, 'thundery-outbreaks.jpg');
+    this.picturesMap.set(1114, 'blowing-snow.jpg');
+    this.picturesMap.set(1117, 'blizzard.jpg');
+    this.picturesMap.set(1135, 'fog.jpg');
+    this.picturesMap.set(1147, 'freezing-fog.jpg');
+    this.picturesMap.set(1150, 'light-drizzle.jpg');
+    this.picturesMap.set(1153, 'light-drizzle.jpg');
+    this.picturesMap.set(1168, 'freezing-drizzle-rain.jpg');
+    this.picturesMap.set(1171, 'heavy-freezing-drizzle.jpg');
+    this.picturesMap.set(1180, 'possibly-rain.jpg');
+    this.picturesMap.set(1183, 'possibly-rain.jpg');
+    this.picturesMap.set(1186, 'moderate-rain.jpg');
+    this.picturesMap.set(1189, 'moderate-rain.jpg');
+    this.picturesMap.set(1192, 'heavy-rain.jpg');
+    this.picturesMap.set(1195, 'heavy-rain.jpg');
+    this.picturesMap.set(1201, 'heavy-freezing-drizzle.jpg');
+    this.picturesMap.set(1201, 'heavy-freezing-drizzle.jpg');
+    this.picturesMap.set(1204, 'rain-snow.jpg');
+    this.picturesMap.set(1207, 'rain-snow.jpg');
+    this.picturesMap.set(1213, 'small-snow.jpg');
+    this.picturesMap.set(1216, 'blowing-snow.jpg');
+    this.picturesMap.set(1219, 'blowing-snow.jpg');
+    this.picturesMap.set(1222, 'blowing-snow.jpg');
+    this.picturesMap.set(1225, 'blowing-snow.jpg');
+    this.picturesMap.set(1237, 'ice-pellets.jpg');
+    this.picturesMap.set(1240, 'rain-shower.jpg');
+    this.picturesMap.set(1243, 'rain-shower.jpg');
+    this.picturesMap.set(1246, 'heavy-rain.jpg');
+    this.picturesMap.set(1249, 'sleet-light.jpg');
+    this.picturesMap.set(1252, 'sleet-heavy.jpg');
+    this.picturesMap.set(1255, 'light-snow-showers.jpg');
+    this.picturesMap.set(1258, 'heavy-snow-showers.jpg');
+    this.picturesMap.set(1261, 'rain-drops.jpg');
+    this.picturesMap.set(1264, 'heavy-rain.jpg');
+    this.picturesMap.set(1273, 'possibly-rain.jpg');
+    this.picturesMap.set(1276, 'heavy-rain.jpg');
+    this.picturesMap.set(1279, 'light-snow-showers.jpg');
+    this.picturesMap.set(1282, 'heavy-snow-showers.jpg');
+
+
+
+
+
 
   }
 

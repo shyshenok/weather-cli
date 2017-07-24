@@ -2,7 +2,7 @@
  * Created by shyshenok on 10.07.17.
  */
 import {Input, Component, OnInit} from '@angular/core';
-import {SharedService} from "../servises/shared-services";
+import {SharedService} from '../servises/shared-services';
 
 @Component({
   moduleId: module.id,
