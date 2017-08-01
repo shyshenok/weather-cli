@@ -1,17 +1,17 @@
 <div class="forecast-form-weather">
-  <h3>Forecast on 10 days</h3>
+  <h3>Forecast on 7 days  {{this.forecastWeather.location.country}}, {{this.forecastWeather.location.name}}</h3>
   <div class="forecast-weather">
-    <div *ngFor = "let day of forecastWeather.forecast.forecastday"  class="forecast-weather-content">
-      <p>{{day.date}}</p>
-      <img src="{{day.day.condition.icon}}" alt="">
+    <div *ngFor = "let forecastDay of forecastWeather.forecast.forecastday" class="forecast-weather-content">
+      <p>{{forecastDay.date}}</p>
+      <img src="{{forecastDay.day.condition.icon}}" alt="">
       <div class="forecast-min-max-temp">
         <div class="row-forecast-weather">
           <h6>Max</h6>
-          <p>{{day.day.maxtemp_c}}C°</p>
+          <p>{{forecastDay.day.maxtemp_c}}C°</p>
         </div>
         <div class="row-forecast-weather">
           <h6>Max</h6>
-          <p>{{day.day.mintemp_c}}C°</p>
+          <p>{{forecastDay.day.mintemp_c}}C°</p>
         </div>
       </div>
 
