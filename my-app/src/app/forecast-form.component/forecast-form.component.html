@@ -1,1 +1,20 @@
-<h1>Hello</h1>
+<div class="forecast-form-weather">
+  <h3>Forecast on 10 days</h3>
+  <div class="forecast-weather">
+    <div *ngFor = "let day of forecastWeather.forecast.forecastday"  class="forecast-weather-content">
+      <p>{{day.date}}</p>
+      <img src="{{day.day.condition.icon}}" alt="">
+      <div class="forecast-min-max-temp">
+        <div class="row-forecast-weather">
+          <h6>Max</h6>
+          <p>{{day.day.maxtemp_c}}C°</p>
+        </div>
+        <div class="row-forecast-weather">
+          <h6>Max</h6>
+          <p>{{day.day.mintemp_c}}C°</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

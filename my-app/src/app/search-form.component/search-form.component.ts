@@ -74,12 +74,6 @@ export class SearchFormComponent {
     this.picturesMap.set(1276, 'heavy-rain.jpg');
     this.picturesMap.set(1279, 'light-snow-showers.jpg');
     this.picturesMap.set(1282, 'heavy-snow-showers.jpg');
-
-
-
-
-
-
   }
 
   getBackgroundPicture(currentWeather) {
@@ -90,6 +84,13 @@ export class SearchFormComponent {
 
   pushToSharedService(inputCity: string) {
     this.sharedService.citySubject.next(inputCity);
+    console.log(`sharedService : ${inputCity}`);
+  }
+
+  processWeatherResponse(data: Response) {
+    this.currentWeather = (<Weather>data.json());
+    this.addResponseHistory(this.currentWeather);
+    this.getBackgroundPicture(this.currentWeather);
   }
 
   getWeather(inputCity: string) {
@@ -102,12 +103,6 @@ export class SearchFormComponent {
       .subscribe((data: Response) => {
         this.processWeatherResponse(data);
       });
-  }
-
-  processWeatherResponse(data: Response) {
-    this.currentWeather = (<Weather>data.json());
-    this.addResponseHistory(this.currentWeather);
-    this.getBackgroundPicture(this.currentWeather);
   }
 
   addResponseHistory(weather: Weather) {

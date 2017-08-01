@@ -15,14 +15,13 @@
       </div>
       <div class="weather-row">
         <h3>Temperature</h3>
-        <p *ngIf="checkedSwitcherTemp">
-          {{currentWeather.current.temp_c}} C° (feels like {{currentWeather.current.feelslike_c}} C°)</p>
-        <p *ngIf= "!checkedSwitcherTemp"> {{currentWeather.current.temp_f}} F° (feels like {{currentWeather.current.feelslike_f}} F°)</p>
+        <p *ngIf="!checkedSwitcherTemp">{{currentWeather.current.temp_c}} C° (feels like {{currentWeather.current.feelslike_c}} C°)</p>
+        <p *ngIf= "checkedSwitcherTemp"> {{currentWeather.current.temp_f}} F° (feels like {{currentWeather.current.feelslike_f}} F°)</p>
       </div>
       <div class="weather-row">
         <h3>Wind</h3>
-        <p *ngIf="checkedSwitcherWind">{{currentWeather.current.wind_kph}} kilometer per hour</p>
-        <p *ngIf="!checkedSwitcherWind">{{currentWeather.current.wind_mph}} miles per hour</p>
+        <p *ngIf="!checkedSwitcherWind">{{currentWeather.current.wind_kph}} kilometer per hour</p>
+        <p *ngIf="checkedSwitcherWind">{{currentWeather.current.wind_mph}} miles per hour</p>
 
       </div>
       <div class="weather-row">
@@ -36,8 +35,8 @@
       </div>
 
       <div class="forecast">
-        <p>Press the button for getting forecast on 10 days</p>
-        <button (click)="goToForecast()">Forecast on 10 days</button>
+        <p>Press the button for getting forecast on 7 days</p>
+        <button (click)="goToForecast()">Forecast on 7 days</button>
       </div>
     </div>
 
@@ -50,20 +49,20 @@
 
 <div class="weather-settings">
   <div class="switcher-temp">
-    <h3>F°</h3>
+    <h3>C°</h3>
     <label class="switch">
       <input #switcherTemp type="checkbox" [(ngModel)] = "checkedSwitcherTemp">
       <div class="slider round"></div>
     </label>
-    <h3>C°</h3>
+    <h3>F°</h3>
   </div>
   <div class="switcher-wind">
-    <h3>mph</h3>
+    <h3>km/h</h3>
     <label class="switch">
       <input #switcherWind type="checkbox" [(ngModel)] = "checkedSwitcherWind">
       <div class="slider round"></div>
     </label>
-    <h3>km/h</h3>
+    <h3>mph</h3>
   </div>
 </div>
 

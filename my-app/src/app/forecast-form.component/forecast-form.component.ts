@@ -1,8 +1,10 @@
 /**
  * Created by shyshenok on 10.07.17.
  */
-import {Input, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../servises/shared-services';
+import {Http, Response} from '@angular/http';
+import {ForecastResponse} from '../../models/forecastWeather';
 
 @Component({
   moduleId: module.id,
@@ -12,13 +14,27 @@ import {SharedService} from '../servises/shared-services';
 })
 export class ForecastWeatherComponent implements OnInit {
 
-  constructor(private sharedService: SharedService) {
+  forecastWeather: ForecastResponse;
+
+  constructor(private httpClient: Http, private sharedService: SharedService) {}
+
+  processForecastWeatherResponse(data: Response) {
+    this.forecastWeather = (<ForecastResponse>data.json());
   }
 
   ngOnInit(): void {
 
     this.sharedService.citySubject.subscribe(city => {
-      console.log('forecast city ' + city);
+      this.httpClient.get(`http://api.apixu.com/v1/forecast.json?key=b4c808afa46c4075a74133530173005&q=${city}&days=7`)
+        .subscribe((data: Response) => {
+          this.processForecastWeatherResponse(data);
+
+
+          for (const weather of this.forecastWeather.forecast.forecastday) {
+            console.log(`weather ${weather.date}`);
+          }
+          console.log(`processForecastWeatherResponse ${data}`);
+        })
     })
   }
 }

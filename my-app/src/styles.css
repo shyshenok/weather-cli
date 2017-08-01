@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   box-sizing: border-box;
+  font-family: 'Handlee', cursive;
 }
 
 html {
@@ -68,4 +69,11 @@ app-root {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+}
+
+app-forecast-form {
+  border-radius: 6px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+
 }

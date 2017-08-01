@@ -1,0 +1,36 @@
+
+.forecast-form-weather h3{
+  text-align: center;
+}
+
+.forecast-weather{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+}
+
+.forecast-weather-content {
+  text-align: center;
+  margin: 10px;
+}
+
+.forecast-min-max-temp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: baseline;
+}
+
+.row-forecast-weather {
+  display: grid;
+  grid-template-rows: 25px 1fr;
+  align-items: baseline;
+}
+
+.row-forecast-weather h6,
+.row-forecast-weather p {
+  margin: 0;
+}
+
+.row-forecast-weather p {
+  font-size: 12px;
+}
