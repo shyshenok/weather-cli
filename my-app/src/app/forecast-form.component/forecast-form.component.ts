@@ -15,6 +15,7 @@ import {ForecastResponse} from '../../models/forecastWeather';
 export class ForecastWeatherComponent implements OnInit {
 
   forecastWeather: ForecastResponse;
+  weekDaysNames: Array<String> = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   constructor(private httpClient: Http, private sharedService: SharedService) {}
 
@@ -33,8 +34,15 @@ export class ForecastWeatherComponent implements OnInit {
           for (const weather of this.forecastWeather.forecast.forecastday) {
             console.log(`weather ${weather.date}`);
           }
-          console.log(`processForecastWeatherResponse ${data}`);
         })
     })
   }
+
+  convertDateToTheWeekdayName(forecastDate: string) {
+    const currentDays =  new Date(forecastDate);
+    const currentForecastDay = this.weekDaysNames[currentDays.getDay()];
+    return currentForecastDay;
+  }
+
+
 }

@@ -3,6 +3,7 @@
   <div class="forecast-weather">
     <div *ngFor = "let forecastDay of forecastWeather.forecast.forecastday" class="forecast-weather-content">
       <p>{{forecastDay.date}}</p>
+      <p>{{convertDateToTheWeekdayName(forecastDay.date)}}</p>
       <img src="{{forecastDay.day.condition.icon}}" alt="">
       <div class="forecast-min-max-temp">
         <div class="row-forecast-weather">
