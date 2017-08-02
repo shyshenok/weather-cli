@@ -1,0 +1,18 @@
+<div class="weather-settings">
+  <div class="switcher-temp">
+    <h3>C°</h3>
+    <label class="switch">
+      <input #switcherTemp type="checkbox" [(ngModel)] = "checkedSwitcherTemp">
+      <div class="slider round"></div>
+    </label>
+    <h3>F°</h3>
+  </div>
+  <div class="switcher-wind">
+    <h3>km/h</h3>
+    <label class="switch">
+      <input #switcherWind type="checkbox" [(ngModel)] = "checkedSwitcherWind">
+      <div class="slider round"></div>
+    </label>
+    <h3>mph</h3>
+  </div>
+</div>

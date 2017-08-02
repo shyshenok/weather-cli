@@ -6,12 +6,12 @@
  */
 import {Component} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {Weather} from '../../models/weather';
+import {Weather} from '../../../models/weather';
 import {Router} from '@angular/router';
-import {SharedService} from '../servises/shared-services';
+import {SharedService} from '../../servises/shared-services';
 
 @Component({
-  selector: 'app-weather',
+  selector: 'app-search-weather',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
 })
@@ -124,6 +124,6 @@ export class SearchFormComponent {
   }
 
   goToForecast() {
-    this.router.navigate(['/forecast']);
+    this.router.navigate(['weather/forecast']);
   }
 }

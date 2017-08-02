@@ -2,9 +2,9 @@
  * Created by shyshenok on 10.07.17.
  */
 import {Component, OnInit} from '@angular/core';
-import {SharedService} from '../servises/shared-services';
+import {SharedService} from '../../servises/shared-services';
 import {Http, Response} from '@angular/http';
-import {ForecastResponse} from '../../models/forecastWeather';
+import {ForecastResponse} from '../../../models/forecastWeather';
 
 @Component({
   moduleId: module.id,

@@ -1,4 +1,10 @@
 
+.forecast-form-weather {
+  border-radius: 6px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 .forecast-form-weather h3{
   text-align: center;
 }

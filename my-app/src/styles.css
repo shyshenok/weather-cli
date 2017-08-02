@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "app/base-weather.component/forecast-form.component/forecast-form.component.css";
+@import "app/base-weather.component/search-form.component/search-form.component.css";
+@import "app/base-weather.component/search-form.component/search-form.component.css";
+
+
 * {
   box-sizing: border-box;
   font-family: 'Handlee', cursive;
@@ -71,9 +77,3 @@ app-root {
   justify-content: center;
 }
 
-app-forecast-form {
-  border-radius: 6px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7);
-
-}
