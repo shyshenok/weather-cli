@@ -5,6 +5,7 @@ import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../servises/shared-services';
 import {Http, Response} from '@angular/http';
 import {ForecastResponse} from '../../../models/forecastWeather';
+import {SettingsServices, SpeedUnit, TemperatureUnit} from "../../servises/settings-services";
 
 @Component({
   moduleId: module.id,
@@ -14,10 +15,13 @@ import {ForecastResponse} from '../../../models/forecastWeather';
 })
 export class ForecastWeatherComponent implements OnInit {
 
+
+  checkedSwitcherTempForecast: boolean;
+  checkedSwitcherSpeedForecast: boolean;
   forecastWeather: ForecastResponse;
   weekDaysNames: Array<String> = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-  constructor(private httpClient: Http, private sharedService: SharedService) {}
+  constructor(private httpClient: Http, private sharedService: SharedService, private settingsServices: SettingsServices) {}
 
   processForecastWeatherResponse(data: Response) {
     this.forecastWeather = (<ForecastResponse>data.json());
@@ -35,7 +39,29 @@ export class ForecastWeatherComponent implements OnInit {
             console.log(`weather ${weather.date}`);
           }
         })
-    })
+    });
+
+    this.settingsServices.temperatureUnitSubject.subscribe(value => {
+        switch (value) {
+          case TemperatureUnit.cel:
+            this.checkedSwitcherTempForecast = true;
+            return;
+          case TemperatureUnit.fahr:
+            this.checkedSwitcherTempForecast = false;
+            return;
+        }
+    });
+
+    this.settingsServices.speedUnitSubject.subscribe(value => {
+      switch (value) {
+        case SpeedUnit.kmph:
+          this.checkedSwitcherSpeedForecast = true;
+          return;
+        case SpeedUnit.mph:
+          this.checkedSwitcherSpeedForecast = false;
+          return;
+      }
+    });
   }
 
   convertDateToTheWeekdayName(forecastDate: string) {

@@ -8,14 +8,20 @@
       <div class="forecast-min-max-temp">
         <div class="row-forecast-weather">
           <h6>Max</h6>
-          <p>{{forecastDay.day.maxtemp_c}}C°</p>
+          <p *ngIf="!checkedSwitcherTempForecast">{{forecastDay.day.maxtemp_c}}C°</p>
+          <p *ngIf="checkedSwitcherTempForecast">{{forecastDay.day.maxtemp_f}}F°</p>
         </div>
         <div class="row-forecast-weather">
           <h6>Max</h6>
-          <p>{{forecastDay.day.mintemp_c}}C°</p>
+          <p *ngIf="!checkedSwitcherTempForecast" >{{forecastDay.day.mintemp_c}}C°</p>
+          <p *ngIf="checkedSwitcherTempForecast">{{forecastDay.day.mintemp_f}}F°</p>
         </div>
+    </div>
+      <div class="row-forecast-weather">
+        <h6>Wind</h6>
+        <p *ngIf="!checkedSwitcherSpeedForecast">{{forecastDay.day.maxwind_kph}} kilometer per hour</p>
+        <p *ngIf="checkedSwitcherSpeedForecast">{{forecastDay.day.maxwind_mph}} miles per hour</p>
       </div>
-
     </div>
   </div>
 </div>

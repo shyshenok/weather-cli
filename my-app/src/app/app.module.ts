@@ -9,6 +9,7 @@ import { ForecastWeatherComponent } from './base-weather.component/forecast-form
 import {SharedService} from './servises/shared-services';
 import {SettingsFormComponent} from './base-weather.component/settings-form.component/settings-form.component';
 import {BaseWeatherComponent} from './base-weather.component/base-weather.component';
+import {SettingsServices} from './servises/settings-services';
 
 
 
@@ -29,6 +30,6 @@ export const appRoutes: Routes = [
   imports:      [ BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes) ],
   declarations: [ AppComponent, BaseWeatherComponent, SearchFormComponent, ForecastWeatherComponent, SettingsFormComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [SharedService]
+  providers: [SharedService, SettingsServices]
 })
 export class AppModule { }

@@ -1,16 +1,16 @@
 <div class="weather-settings">
-  <div class="switcher-temp">
+  <div class="switch-temp">
     <h3>C°</h3>
     <label class="switch">
-      <input #switcherTemp type="checkbox" [(ngModel)] = "checkedSwitcherTemp">
+      <input #switcherTemp type="checkbox" (change)="onChangeTemperatureSwitch($event.target.checked)">
       <div class="slider round"></div>
     </label>
     <h3>F°</h3>
   </div>
-  <div class="switcher-wind">
+  <div class="switch-wind">
     <h3>km/h</h3>
     <label class="switch">
-      <input #switcherWind type="checkbox" [(ngModel)] = "checkedSwitcherWind">
+      <input #switcherWind type="checkbox" (change)="onChangeSpeedSwich($event.target.checked)">
       <div class="slider round"></div>
     </label>
     <h3>mph</h3>

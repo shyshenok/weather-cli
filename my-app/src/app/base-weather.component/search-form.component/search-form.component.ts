@@ -4,18 +4,19 @@
 /**
  * Created by shyshenok on 21.06.17.
  */
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Weather} from '../../../models/weather';
 import {Router} from '@angular/router';
 import {SharedService} from '../../servises/shared-services';
+import {SettingsServices, SpeedUnit, TemperatureUnit} from '../../servises/settings-services';
 
 @Component({
   selector: 'app-search-weather',
   templateUrl: './search-form.component.html',
   styleUrls: ['./search-form.component.css'],
 })
-export class SearchFormComponent {
+export class SearchFormComponent implements OnInit {
 
   currentWeather: Weather;
 
@@ -26,7 +27,10 @@ export class SearchFormComponent {
   responseHistory: Array<Weather> = [];
   picturesMap: Map<number, string> = new Map<number, string>();
 
-  constructor(private httpClient: Http, private router: Router, private sharedService: SharedService) {
+  constructor(private httpClient: Http,
+              private router: Router,
+              private sharedService: SharedService,
+              private settingsServices: SettingsServices) {
     this.picturesMap.set(1000, 'sunny.jpg');
     this.picturesMap.set(1003, 'partly-cloudy.jpg');
     this.picturesMap.set(1006, 'cloudy.jpg');
@@ -74,6 +78,29 @@ export class SearchFormComponent {
     this.picturesMap.set(1276, 'heavy-rain.jpg');
     this.picturesMap.set(1279, 'light-snow-showers.jpg');
     this.picturesMap.set(1282, 'heavy-snow-showers.jpg');
+  }
+
+  ngOnInit(): void {
+    this.settingsServices.temperatureUnitSubject.subscribe(value => {
+      switch (value) {
+        case TemperatureUnit.cel:
+          this.checkedSwitcherTemp = true;
+          return;
+        case TemperatureUnit.fahr:
+          this.checkedSwitcherTemp = false;
+          return;
+      }
+    });
+    this.settingsServices.speedUnitSubject.subscribe(value => {
+      switch (value) {
+        case SpeedUnit.kmph:
+          this.checkedSwitcherWind = true;
+          return;
+        case SpeedUnit.mph:
+          this.checkedSwitcherWind = false;
+          return;
+      }
+    });
   }
 
   getBackgroundPicture(currentWeather) {
